@@ -17,7 +17,10 @@ fun createFolder(day: Int): String? {
     return folderName
 }
 
-
+fun createPart1File(folderName: String) {
+    val templatePath = Paths.get("scripts/templates/solution_template.ml")
+    Files.copy(templatePath, Paths.get("${folderName}/part1.ml"))
+}
 
 val currentDateDay = LocalDate.now().dayOfMonth
-createFolder(currentDateDay)
+createFolder(currentDateDay)?.let { createPart1File(it) }
