@@ -1,5 +1,5 @@
 #!/usr/bin/env kscript
-@file:Include("shell-utils.kts")
+@file:Include("util-shell.kts")
 
 fun commitFiles(filesToCommit: List<String>, commitMessage: String) {
     runCommand(listOf("git", "add") + filesToCommit)
