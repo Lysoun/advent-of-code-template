@@ -5,25 +5,31 @@ import java.time.LocalDate
 
 @file:Include("git-utils.kts")
 
-/**
- * Returns true if folder was created
- */
-fun createFolder(day: Int): String? {
-    val folderName = "day${day}"
+        /**
+         * Returns true if folder was created
+         */
+fun createFolder(day: Int): String {
+    println("Try creating folder for day $day")
+    val folderName = "day$day"
 
-    if(File(folderName).exists()) {
-        return null
+    if (File(folderName).exists()) {
+        println("Folder was not created because it already existed")
+    } else {
+        println("Create folder $folderName")
+        Files.createDirectory(Paths.get(folderName))
     }
-
-    Files.createDirectory(Paths.get(folderName))
     return folderName
 }
 
 fun createPart1File(folderName: String) {
+    println("Create part 1 file in folder $folderName")
     val templatePath = Paths.get("scripts/templates/solution_template.ml")
     Files.copy(templatePath, Paths.get("${folderName}/part1.ml"))
 }
 
 val currentDateDay = LocalDate.now().dayOfMonth
-createFolder(currentDateDay)?.let { createPart1File(it) }
+
+val folderName = createFolder(currentDateDay)
+createPart1File(folderName)
+println("Commit files for day $currentDateDay")
 commitDaySolutionsInit(currentDateDay)
