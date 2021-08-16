@@ -3,6 +3,8 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.time.LocalDate
 
+@file:Include("git-utils.kts")
+
 /**
  * Returns true if folder was created
  */
@@ -24,3 +26,4 @@ fun createPart1File(folderName: String) {
 
 val currentDateDay = LocalDate.now().dayOfMonth
 createFolder(currentDateDay)?.let { createPart1File(it) }
+commitDaySolutionsInit(currentDateDay)
