@@ -21,21 +21,25 @@ fun createFolder(day: Int): String {
     return folderName
 }
 
-fun createPart1File(folderName: String) {
+fun createPart1File(folderName: String): Boolean {
     println("Try creating part 1 file in folder $folderName")
     val templatePath = Paths.get("scripts/templates/solution_template.ml")
     val part1FileName = "${folderName}/part1.ml"
 
-    if(File(part1FileName).exists()) {
+    if (File(part1FileName).exists()) {
         println("Part 1 file was not created because it already existed")
-    } else {
-        Files.copy(templatePath, Paths.get(part1FileName))
+        return false
     }
+
+    Files.copy(templatePath, Paths.get(part1FileName))
+    return true
 }
 
 val currentDateDay = LocalDate.now().dayOfMonth
 
 val folderName = createFolder(currentDateDay)
-createPart1File(folderName)
-println("Commit files for day $currentDateDay")
-commitDaySolutionsInit(currentDateDay)
+val part1FileCreated = createPart1File(folderName)
+if (part1FileCreated) {
+    println("Commit files for day $currentDateDay")
+    commitDaySolutionsInit(currentDateDay)
+}
