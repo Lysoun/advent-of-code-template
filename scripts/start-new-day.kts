@@ -22,9 +22,15 @@ fun createFolder(day: Int): String {
 }
 
 fun createPart1File(folderName: String) {
-    println("Create part 1 file in folder $folderName")
+    println("Try creating part 1 file in folder $folderName")
     val templatePath = Paths.get("scripts/templates/solution_template.ml")
-    Files.copy(templatePath, Paths.get("${folderName}/part1.ml"))
+    val part1FileName = "${folderName}/part1.ml"
+
+    if(File(part1FileName).exists()) {
+        println("Part 1 file was not created because it already existed")
+    } else {
+        Files.copy(templatePath, Paths.get(part1FileName))
+    }
 }
 
 val currentDateDay = LocalDate.now().dayOfMonth
