@@ -34,3 +34,7 @@ fun createFileUsingTemplate(fileName: String, templateFilePath: String): Boolean
     Files.copy(Paths.get(templateFilePath), Paths.get(fileName))
     return true
 }
+
+fun writeToFile(fileName: String, content: String) {
+    Paths.get(fileName).toFile().writeText(content)
+}
