@@ -11,3 +11,7 @@ fun commitDaySolutionsInit(dayNumber: Int) {
     commitFiles(listOf(part1FilePath), ":tada: Init day ${dayNumber} solutions")
 }
 
+fun commitInput(dayNumber: Int) {
+    val inputFilePath = "day$dayNumber/input.txt"
+    commitFiles(listOf(inputFilePath), ":tada: Retrieve input for day $dayNumber")
+}

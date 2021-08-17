@@ -44,4 +44,6 @@ if (input == null) {
 } else {
     println("Writing input for day $currentDateDay into file")
     writeInput(folderName, input)
+    println("Commit input for day $currentDateDay")
+    commitInput(currentDateDay)
 }
