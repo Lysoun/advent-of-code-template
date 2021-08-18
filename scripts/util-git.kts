@@ -1,9 +1,14 @@
 #!/usr/bin/env kscript
 @file:Include("util-shell.kts")
 
+// Used to avoid comitting when testing the scripts, eases development
+val test = true
+
 fun commitFiles(filesToCommit: List<String>, commitMessage: String) {
-    runCommand(listOf("git", "add") + filesToCommit)
-    runCommand(listOf("git", "commit", "-m", commitMessage))
+    if(!test) {
+        runCommand(listOf("git", "add") + filesToCommit)
+        runCommand(listOf("git", "commit", "-m", commitMessage))
+    }
 }
 
 fun commitDaySolutionsInit(dayNumber: Int) {
