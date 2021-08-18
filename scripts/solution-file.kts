@@ -7,6 +7,13 @@ fun createPart1File(folderName: String): Boolean = createFileUsingTemplate(
 )
 
 fun createPart1File(folderName: String, day: Int) {
+    println("""
+        
+        ##########################
+        ### CREATE PART 1 FILE ###
+        ##########################
+
+    """.trimIndent())
     val part1FileCreated = createPart1File(folderName)
     if (part1FileCreated) {
         println("Commit files for day $currentDateDay")
