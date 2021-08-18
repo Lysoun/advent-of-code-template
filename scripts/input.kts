@@ -3,8 +3,10 @@
 @file:Include("util-git.kts")
 @file:Include("util-config.kts")
 
+val inputFileName = "input.txt"
+
 fun buildInputFilePath(folderName: String): String {
-    return "$folderName/input.txt"
+    return "$folderName/$inputFileName"
 }
 
 fun retrieveInput(day: Int, sessionId: String): String? {
