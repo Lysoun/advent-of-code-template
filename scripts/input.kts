@@ -3,6 +3,9 @@
 @file:Include("util-git.kts")
 @file:Include("util-config.kts")
 
+fun buildInputFilePath(folderName: String): String {
+    return "$folderName/input.txt"
+}
 
 fun retrieveInput(day: Int, sessionId: String): String? {
     val url = "https://adventofcode.com/2020/day/$day/input"
@@ -11,12 +14,12 @@ fun retrieveInput(day: Int, sessionId: String): String? {
 
 fun writeInput(folderName: String, input: String) {
     writeToFile(
-        "$folderName/input.txt",
+        buildInputFilePath(folderName),
         input
     )
 }
 
-fun inputFileExists(folderName: String): Boolean = fileExists("$folderName/input.txt")
+fun inputFileExists(folderName: String): Boolean = fileExists(buildInputFilePath(folderName))
 
 fun loadInput(day: Int, folderName: String) {
     println("""
