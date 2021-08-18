@@ -1,15 +1,9 @@
 @file:Include("util-file.kts")
 @file:Include("util-git.kts")
 @file:Include("input.kts")
+@file:Include("folder.kts")
 
 import java.time.LocalDate
-
-
-fun createDayFolder(day: Int): String {
-    val folderName = "day$day"
-    createFolder(folderName)
-    return folderName
-}
 
 fun createPart1File(folderName: String): Boolean = createFileUsingTemplate(
     fileName = "${folderName}/part1.ml",
