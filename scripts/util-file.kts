@@ -38,3 +38,5 @@ fun createFileUsingTemplate(fileName: String, templateFilePath: String): Boolean
 fun writeToFile(fileName: String, content: String) {
     Paths.get(fileName).toFile().writeText(content)
 }
+
+fun fileExists(fileName: String): Boolean = Paths.get(fileName).toFile().exists()

@@ -16,6 +16,8 @@ fun writeInput(folderName: String, input: String) {
     )
 }
 
+fun inputFileExists(folderName: String): Boolean = fileExists("$folderName/input.txt")
+
 fun loadInput(day: Int, folderName: String) {
     println("""
         
@@ -25,18 +27,25 @@ fun loadInput(day: Int, folderName: String) {
         
     """.trimIndent())
 
-    println("# Retrieve input from AOC site")
-    val input = retrieveInput(currentDateDay, loadSessionId())
+    println("# Check if input file exists")
 
-    if (input == null) {
-        println("Input was empty; no file was written")
+    if(!inputFileExists(folderName)) {
+        println("Input file does not exist yet")
+        println("# Retrieve input from AOC site")
+        val input = retrieveInput(currentDateDay, loadSessionId())
+
+        if (input == null) {
+            println("Input was empty; no file was written")
+        } else {
+            println("# Write input")
+            println("Writing input for day $currentDateDay into file")
+            writeInput(folderName, input)
+
+            println("Commit input for day $currentDateDay")
+            commitInput(currentDateDay)
+        }
     } else {
-        println("# Write input")
-        println("Writing input for day $currentDateDay into file")
-        writeInput(folderName, input)
-
-        println("Commit input for day $currentDateDay")
-        commitInput(currentDateDay)
+        println("Input file already exists")
     }
 }
 
