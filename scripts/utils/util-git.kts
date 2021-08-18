@@ -1,5 +1,5 @@
 #!/usr/bin/env kscript
-@file:Include("util-shell.kts")
+@file:Include("../utils/util-shell.kts")
 
 // Used to avoid comitting when testing the scripts, eases development
 val test = true

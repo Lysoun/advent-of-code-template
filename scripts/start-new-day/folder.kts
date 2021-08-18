@@ -1,4 +1,4 @@
-@file:Include("util-file.kts")
+@file:Include("../utils/util-file.kts")
 
 fun createDayFolder(day: Int): String {
     println("""

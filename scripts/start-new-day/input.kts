@@ -1,7 +1,7 @@
-@file:Include("util-http.kts")
-@file:Include("util-file.kts")
-@file:Include("util-git.kts")
-@file:Include("util-config.kts")
+@file:Include("../utils/util-http.kts")
+@file:Include("../utils/util-file.kts")
+@file:Include("../utils/util-git.kts")
+@file:Include("../utils/util-config.kts")
 
 val inputFileName = "input.txt"
 

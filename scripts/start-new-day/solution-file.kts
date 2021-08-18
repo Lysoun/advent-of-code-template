@@ -1,5 +1,5 @@
-@file:Include("util-file.kts")
-@file:Include("util-git.kts")
+@file:Include("../utils/util-file.kts")
+@file:Include("../utils/util-git.kts")
 
 fun createPart1File(folderName: String): Boolean = createFileUsingTemplate(
     fileName = "${folderName}/part1.ml",
